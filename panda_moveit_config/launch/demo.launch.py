@@ -106,8 +106,8 @@ def generate_launch_description():
         executable="move_group",
         output="screen",
         parameters=[
-            robot_description,
             robot_description_semantic,
+            {'publish_robot_description_semantic': True},
             kinematics_yaml,
             ompl_planning_pipeline_config,
             trajectory_execution,
@@ -128,8 +128,6 @@ def generate_launch_description():
         output="log",
         arguments=["-d", rviz_empty_config],
         parameters=[
-            robot_description,
-            robot_description_semantic,
             ompl_planning_pipeline_config,
             kinematics_yaml,
         ],
@@ -142,8 +140,6 @@ def generate_launch_description():
         output="log",
         arguments=["-d", rviz_full_config],
         parameters=[
-            robot_description,
-            robot_description_semantic,
             ompl_planning_pipeline_config,
             kinematics_yaml,
         ],
